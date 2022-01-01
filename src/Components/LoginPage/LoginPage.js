@@ -13,8 +13,15 @@ class LoginPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      isLogin: false
+      isLogin: true
     }
+  }
+
+  changLogin = () => {
+    if (this.state.isLogin)
+      this.setState({ isLogin: false });
+    else
+      this.setState({ isLogin: true });
   }
 
   render() {
@@ -57,12 +64,12 @@ class LoginPage extends Component {
                 <div className="loginpage_singupoption">
                   {
                     this.state.isLogin ?
-                      <div className="loginpage_singup">
-                        Don't have an account? <span style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign up</span>
+                      <div>
+                        Don't have an account? <span onClick={this.changLogin} style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign up</span>
                       </div>
                       :
-                      <div className="loginpage_singin">
-                        have an account? <span style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign in</span>
+                      <div>
+                        have an account? <span onClick={this.changLogin} style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign in</span>
                       </div>
                   }
                 </div>
