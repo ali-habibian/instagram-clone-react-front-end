@@ -7,11 +7,14 @@ import fb_icon from "../../images/fb.png";
 import appstore_icon from "../../images/app.png";
 import googlestore_icon from "../../images/play.png";
 import SignIn from "../Signin/SignIn";
+import SignUp from "../SignUp/SignUp";
 
 class LoginPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      isLogin: false
+    }
   }
 
   render() {
@@ -34,7 +37,11 @@ class LoginPage extends Component {
                     alt="insta logo"
                   />
                   <div className="loginpage_signin">
-                    <SignIn/>
+
+                    {
+                      this.state.isLogin ? <SignIn /> : <SignUp />
+                    }
+
 
                     <div className="loginpage_ordiv">
                       <div className="loginpage_divder"></div>
@@ -48,19 +55,23 @@ class LoginPage extends Component {
                 </div>
 
                 <div className="loginpage_singupoption">
-                  <div className="loginpage_singup">
-                    Don't have an account? <span style={{"fontWeight":"bold", "color":"#0395F6"}}>sign up</span>
-                  </div>
-                  <div className="loginpage_singin">
-                    have an account? <span style={{"fontWeight":"bold", "color":"#0395F6"}}>sign in</span>
-                  </div>
+                  {
+                    this.state.isLogin ?
+                      <div className="loginpage_singup">
+                        Don't have an account? <span style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign up</span>
+                      </div>
+                      :
+                      <div className="loginpage_singin">
+                        have an account? <span style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign in</span>
+                      </div>
+                  }
                 </div>
 
                 <div className="loginpage_downloadsection">
                   <div className="loginpage_downloadsection_text">Get the app.</div>
                   <div className="loginpage_downloadsection_option">
-                    <img className="loginpage_downloadsection_img" src={appstore_icon} width="136px" alt="appstore_icon"/>
-                    <img  className="loginpage_downloadsection_img" src={googlestore_icon} width="136px" alt="googlestore_icon"/>
+                    <img className="loginpage_downloadsection_img" src={appstore_icon} width="136px" alt="appstore_icon" />
+                    <img className="loginpage_downloadsection_img" src={googlestore_icon} width="136px" alt="googlestore_icon" />
                   </div>
                 </div>
 

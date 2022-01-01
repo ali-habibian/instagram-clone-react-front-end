@@ -14,10 +14,10 @@ body {
 }
 
 .loginpage_rightcomponent {
-    height: 380px;
     width: 350px;
     border: 1px solid #dbdbdb;
     margin-top: 25px;
+    padding-bottom: 25px;
     text-align: center;
     background-color: white;
 }
@@ -81,7 +81,7 @@ body {
 
 .loginpage_singupoption {
     width: 350px;
-    height: 56px;
+    padding: 25px 0;
     margin-top: 12px;
     background-color: white;
     border: 1px solid #DBDBDB;
