@@ -1,0 +1,41 @@
+.post_container {
+    width: 615px;
+    margin-top: 25px;
+    border: 1px solid #DBDBDB;
+}
+
+.post_header {
+    display: flex;
+    height: 60px;
+    border: 1px solid #DBDBDB;
+}
+
+.post_profileImg {
+    min-width: 30px;
+    min-height: 30px;
+    margin: 10px;
+}
+
+.post_username {
+    font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.post_analyticts_icon {
+    width: 25px;
+    max-height: 25px;
+    margin: 5px;
+}
+
+.post_comment {
+    margin: 10px;
+}
+
+.post_commentBox {
+    width: 601px;
+    height: 40px;
+    border: 1px solid #DBDBDB;
+    font-size: 16px;
+    padding-left: 10px;
+}

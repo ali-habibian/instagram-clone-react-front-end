@@ -36,7 +36,7 @@ class StatusBar extends Component {
                 "username": "Test_user",
                 "imageURL": "../../images/pp1.png"
             }
-        ]
+        ];
         this.setState({ statusList: data });
     }
 
@@ -46,7 +46,7 @@ class StatusBar extends Component {
                 <div className='statusBar_container'>
 
                     {
-                        this.state.statusList.map((item, index) => (
+                        this.state.statusList.map((item, index)=>(
                             <div className='statusBar_status'>
                                 <Avatar className='statusBar_statusImg' src={item.imageURL} alt='status_iamge' />
                                 <div className="statusBar_text">{item.username}</div>
