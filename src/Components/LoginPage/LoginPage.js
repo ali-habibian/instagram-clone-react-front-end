@@ -75,7 +75,7 @@ class LoginPage extends Component {
                 </div>
 
                 <div className="loginpage_downloadsection">
-                  <div className="loginpage_downloadsection_text">Get the app.</div>
+                  <div>Get the app.</div>
                   <div className="loginpage_downloadsection_option">
                     <img className="loginpage_downloadsection_img" src={appstore_icon} width="136px" alt="appstore_icon" />
                     <img className="loginpage_downloadsection_img" src={googlestore_icon} width="136px" alt="googlestore_icon" />
