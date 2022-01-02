@@ -1,21 +1,70 @@
 import React, { Component } from 'react';
+import { app } from '../firebase';
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 class SignUp extends Component {
     constructor(props) {
         super(props);
-        this.state = {  }
+        this.state = {
+            emailId: null,
+            name: null,
+            userName: null,
+            password: null
+        }
     }
-    render() { 
-        return ( 
+
+    provideEmail = (event) => { this.state.emailId = event.currentTarget.value; }
+    provideName = (event) => { this.state.name = event.currentTarget.value; }
+    provideUserName = (event) => { this.state.userName = event.currentTarget.value; }
+    providePassword = (event) => { this.state.password = event.currentTarget.value; }
+
+    newSignUp = () => {
+        const auth = getAuth();
+        createUserWithEmailAndPassword(auth, this.state.emailId, this.state.password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+
+                let payload = {
+                    "userId": user.uid,
+                    "userName": this.state.userName,
+                    "name": this.state.name,
+                    "profileImage": ""
+                }
+
+                const requestOption = {
+                    method: "POST",
+                    headers: { 'Content-Type': "application/json" },
+                    body: JSON.stringify(payload),
+                }
+                fetch("http://localhost:8080/users", requestOption)
+                    .then(response => response.json())
+                    .then(data => {
+                        localStorage.setItem("user", user);
+                        window.location.reload();
+                    })
+                    .catch(errer => {
+
+                    })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+    }
+
+    render() {
+        return (
             <div>
-                <input className="loginpage_text" type="text" placeholder="Phone Number or Email" />
-                <input className="loginpage_text" type="text" placeholder="Full Name" />
-                <input className="loginpage_text" type="text" placeholder="Username" />
-                <input className="loginpage_text" type="password" placeholder="Password" />
-                <button className="loginpage_button">Sign Up</button>
+                <input className="loginpage_text" onChange={this.provideEmail} type="text" placeholder="Email" required />
+                <input className="loginpage_text" onChange={this.provideName} type="text" placeholder="Full Name" required />
+                <input className="loginpage_text" onChange={this.provideUserName} type="text" placeholder="Username" required />
+                <input className="loginpage_text" onChange={this.providePassword} type="password" placeholder="Password" required />
+                <button className="loginpage_button" onClick={this.newSignUp}>Sign Up</button>
             </div>
-         );
+        );
     }
 }
- 
+
 export default SignUp;

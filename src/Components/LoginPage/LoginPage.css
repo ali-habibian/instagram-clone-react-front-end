@@ -45,6 +45,7 @@ body {
     font-weight: bold;
     background-color: #0395F6;
     color: white;
+    cursor: pointer;
 }
 
 .loginpage_ordiv {

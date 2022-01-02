@@ -65,11 +65,11 @@ class LoginPage extends Component {
                   {
                     this.state.isLogin ?
                       <div>
-                        Don't have an account? <span onClick={this.changLogin} style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign up</span>
+                        Don't have an account? <span onClick={this.changLogin} style={{ "fontWeight": "bold", "color": "#0395F6", "cursor": "pointer" }}>sign up</span>
                       </div>
                       :
                       <div>
-                        have an account? <span onClick={this.changLogin} style={{ "fontWeight": "bold", "color": "#0395F6" }}>sign in</span>
+                        have an account? <span onClick={this.changLogin} style={{ "fontWeight": "bold", "color": "#0395F6", "cursor": "pointer" }}>sign in</span>
                       </div>
                   }
                 </div>
