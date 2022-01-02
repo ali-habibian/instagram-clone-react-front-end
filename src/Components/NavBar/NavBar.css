@@ -21,3 +21,8 @@
 .navbar_icon {
     margin: 15px 10px;
 }
+
+.navbar_uploadIcon{
+    width: 60px;
+    height: 60px;
+}

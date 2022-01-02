@@ -21,7 +21,7 @@ class NavBar extends Component {
                         <Grid item xs={2}></Grid>
 
                         <Grid item xs={3}>
-                            <img className='navbar_instaLogo' src={insta_logo} width="105px" alt='insta_logo' />
+                            <img className='navbar_instaLogo' src={insta_logo} width="105px" alt='navbar_instaLogo' />
                         </Grid>
 
                         <Grid item xs={3}>

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../MainPage/MainPage.css';
 import Post from '../Post/Post';
 
+
 class MainPage extends Component {
     constructor(props) {
         super(props);
