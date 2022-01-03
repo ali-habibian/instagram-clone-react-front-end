@@ -22,7 +22,7 @@ class SignIn extends Component {
                 // Signed in 
                 const user = userCredential.user;
 
-                localStorage.setItem("user", user);
+                localStorage.setItem("user", JSON.stringify(user));
                 window.location.reload();
             })
             .catch((error) => {

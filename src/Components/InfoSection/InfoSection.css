@@ -26,3 +26,11 @@
     width: 60px;
     height: 60px;
 }
+
+.info_fileUpload{
+    text-align: center;
+}
+
+.info_fileUpload > input{
+    display: none;
+}

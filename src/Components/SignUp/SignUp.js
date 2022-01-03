@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { app } from '../firebase';
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
 class SignUp extends Component {
@@ -40,7 +39,7 @@ class SignUp extends Component {
                 fetch("http://localhost:8080/users", requestOption)
                     .then(response => response.json())
                     .then(data => {
-                        localStorage.setItem("user", user);
+                        localStorage.setItem("user", JSON.stringify(user));
                         window.location.reload();
                     })
                     .catch(errer => {

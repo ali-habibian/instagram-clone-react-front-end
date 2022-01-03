@@ -16,30 +16,22 @@ class MainPage extends Component {
     }
 
     getPost = () => {
-        let data = [
-            {
-                "postId": "1234",
-                "userName": "ali_habibian",
-                "postImageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/2d/b2/e2/cholothse-montain-views.jpg",
-                "timeStamp": "12345",
-                "likes": "68"
-            },
-            {
-                "postId": "1234",
-                "userName": "ali_habibian",
-                "postImageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/2d/b2/e2/cholothse-montain-views.jpg",
-                "timeStamp": "12345",
-                "likes": "68"
-            },
-            {
-                "postId": "1234",
-                "userName": "ali_habibian",
-                "postImageUrl": "https://media-cdn.tripadvisor.com/media/photo-s/13/2d/b2/e2/cholothse-montain-views.jpg",
-                "timeStamp": "12345",
-                "likes": "68"
-            }
-        ];
-        this.setState({ postArray: data });
+        const thisContext = this;
+        
+        const requestOption = {
+            method: "GET",
+            headers: { 'Content-Type': "application/json" }
+        }
+
+        fetch("http://localhost:8080/posts", requestOption)
+            .then(response => response.json())
+            .then(data => {
+                thisContext.setState({ postArray: data });
+            })
+            .catch(errer => {
+
+            });
+        
     }
 
     render() {
@@ -47,7 +39,7 @@ class MainPage extends Component {
             <div>
                 {
                     this.state.postArray.map((item, index) => (
-                        <Post id={item.postId} userName={item.userName} postIamge={item.postImageUrl} likes={item.likes} />
+                        <Post id={item.postId} userName={item.userName} postIamge={item.postPath} likes={item.likeCount} />
                     ))
                 }
             </div>
